@@ -10,7 +10,6 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # Устанавливаем Gradle системно
-  - apt-get update
   - apt-get install -y gradle
   # Запускаем приложение
   - java -jar ./artifacts/app-replan-delivery.jar &
