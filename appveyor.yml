@@ -9,13 +9,18 @@ branches:
 build: off  # будем использовать свой скрипт сборки
 
 install:
-  # ПЕРВОЕ ДЕЛО - даем права на выполнение
-  - chmod +x ./gradlew
-  # Проверяем что права установились
-  - ls -la ./gradlew
-  # Затем запускаем приложение
-  - java -jar ./artifacts/app-replan-delivery.jar &
-  - sleep 15
+  - install:
+      - echo "=== Checking files ==="
+      - pwd
+      - ls -la
+      - echo "=== Gradle wrapper ==="
+      - ls -la gradlew*
+      - ls -la gradle/wrapper/
+      - echo "=== Setting permissions ==="
+      - chmod +x ./gradlew
+      - ls -la ./gradlew
+      - java -jar ./artifacts/app-replan-delivery.jar &
+      - sleep 15
 
 build_script:
   # Запускаем автотесты
