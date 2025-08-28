@@ -9,9 +9,11 @@ branches:
 build: off  # будем использовать свой скрипт сборки
 
 install:
-  # Даем права на выполнение ПЕРВЫМ ДЕЛОМ
-  - chmod +x gradlew
-  # Запускаем SUT
+  # ПЕРВОЕ ДЕЛО - даем права на выполнение
+  - chmod +x ./gradlew
+  # Проверяем что права установились
+  - ls -la ./gradlew
+  # Затем запускаем приложение
   - java -jar ./artifacts/app-replan-delivery.jar &
   - sleep 15
 
